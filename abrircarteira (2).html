@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,7 +26,14 @@
 
     <script>
       function abrirApp() {
-        window.location.href = "indriver://open/driver/wallet";
+        const iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.src = "indriver://open/driver/wallet";
+        document.body.appendChild(iframe);
+
+        setTimeout(() => {
+          window.location.href = "https://play.google.com/store/apps/details?id=sineo.indriver.driver"; // fallback
+        }, 3000);
       }
     </script>
   </body>
